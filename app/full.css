@@ -155,10 +155,10 @@
 .more-services{margin:28px 0 0;color:var(--muted);font-size:1.05rem}
 
 .optional-details{margin:2px 0 16px;background:var(--cream)}
-.optional-details summary{display:flex;justify-content:space-between;align-items:center;padding:11px 13px;cursor:pointer;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;list-style:none}
+.optional-details summary,.optional-summary{display:flex;width:100%;justify-content:space-between;align-items:center;padding:11px 13px;cursor:pointer;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;list-style:none;border:0;color:var(--ink);font-family:inherit;text-align:left}
 .optional-details summary::-webkit-details-marker{display:none}
-.optional-details summary span{font-size:1.2rem;line-height:1}
-.optional-details[open] summary span{transform:rotate(45deg)}
+.optional-details summary span,.optional-summary span{font-size:1.2rem;line-height:1}
+.optional-details[open] summary span,.optional-details.is-open .optional-summary span{transform:rotate(45deg)}
 .optional-details>div{padding:4px 13px 1px}
 .hero-card .optional-details{margin-bottom:11px}
 .hero-card .optional-details label{margin-bottom:10px}
@@ -269,10 +269,10 @@
 .hero-copy{align-self:start;margin-top:155px}
 .hero-card{align-self:start}
 .optional-details{overflow:hidden}
-.optional-details summary{position:relative;z-index:1;background:#fff}
-.optional-details summary span{transition:transform .5s cubic-bezier(.22,.61,.36,1)}
+.optional-details summary,.optional-summary{position:relative;z-index:1;background:#fff}
+.optional-details summary span,.optional-summary span{transition:transform .5s cubic-bezier(.22,.61,.36,1)}
 .optional-details>div{display:block!important;max-height:0;overflow:hidden;opacity:0;padding:0 13px;transition:max-height .65s cubic-bezier(.22,.61,.36,1),opacity .4s ease,padding .65s cubic-bezier(.22,.61,.36,1)}
-.optional-details[open]>div{max-height:350px;opacity:1;padding:10px 13px 1px}
+.optional-details[open]>div,.optional-details.is-open>div{max-height:350px;opacity:1;padding:10px 13px 1px}
 
 @media(max-width:900px){.hero-copy{margin-top:0}.hero-card{margin-top:20px}}
-@media(prefers-reduced-motion:reduce){.optional-details>div,.optional-details summary span{transition:none}}
+@media(prefers-reduced-motion:reduce){.optional-details>div,.optional-details summary span,.optional-summary span{transition:none}}

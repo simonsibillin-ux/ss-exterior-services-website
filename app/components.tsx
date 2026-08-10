@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { FormEvent, useState } from "react";
+import { FormEvent, useId, useState } from "react";
 import { services } from "./services/data";
 
 declare global { interface Window { dataLayer?: Record<string, unknown>[] } }
@@ -44,6 +44,8 @@ export function QuoteForm({ defaultService = "" }: { compact?: boolean; defaultS
   const [state, setState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [error, setError] = useState("");
   const [selectedServices, setSelectedServices] = useState<string[]>(defaultService ? [defaultService] : []);
+  const [optionalOpen, setOptionalOpen] = useState(false);
+  const optionalDetailsId = useId();
 
   function toggleService(service: string) {
     setSelectedServices(current => current.includes(service) ? current.filter(item => item !== service) : [...current, service]);
@@ -84,7 +86,7 @@ export function QuoteForm({ defaultService = "" }: { compact?: boolean; defaultS
       const selected = selectedServices.includes(service.shortTitle);
       return <label className={selected ? "selected" : ""} key={service.slug}><input type="checkbox" name="service" value={service.shortTitle} checked={selected} onChange={() => toggleService(service.shortTitle)} /><span>{service.shortTitle}</span></label>;
     })}</div></fieldset>
-    <details className="optional-details"><summary>Add email or job details <span aria-hidden="true">+</span></summary><div><label><span>Email</span><input name="email" type="email" autoComplete="email" placeholder="you@email.com" /></label><label><span>Tell us about the job</span><textarea name="message" rows={3} placeholder="Anything useful about access, size or the work required" /></label></div></details>
+    <div className={`optional-details${optionalOpen ? " is-open" : ""}`}><button className="optional-summary" type="button" aria-expanded={optionalOpen} aria-controls={optionalDetailsId} onClick={() => setOptionalOpen(open => !open)}>Add email or job details <span aria-hidden="true">+</span></button><div id={optionalDetailsId} aria-hidden={!optionalOpen}><label><span>Email</span><input name="email" type="email" autoComplete="email" placeholder="you@email.com" tabIndex={optionalOpen ? 0 : -1} /></label><label><span>Tell us about the job</span><textarea name="message" rows={3} placeholder="Anything useful about access, size or the work required" tabIndex={optionalOpen ? 0 : -1} /></label></div></div>
     <label className="consent"><input type="checkbox" required name="consent" value="yes" /><span>I agree that SS Exterior Services may contact me about this enquiry.</span></label>
     {state === "error" && <p className="form-error" role="alert">{error} You can also call <a href="tel:0447130743">0447 130 743</a>.</p>}
     <button className="button form-button" disabled={state === "sending"} type="submit">{state === "sending" ? "Sending..." : "Request my free quote"}</button>
