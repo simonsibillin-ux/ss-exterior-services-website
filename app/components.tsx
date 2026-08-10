@@ -79,12 +79,12 @@ export function QuoteForm({ defaultService = "" }: { compact?: boolean; defaultS
     <input className="honeypot" name="company" tabIndex={-1} autoComplete="off" aria-hidden="true" />
     <input type="hidden" name="source" value="Website" />
     <div className="field-row"><label><span>Name *</span><input name="name" required autoComplete="name" placeholder="Your name" /></label><label><span>Phone *</span><input name="phone" required inputMode="tel" autoComplete="tel" placeholder="04xx xxx xxx" /></label></div>
-    <div className="field-row"><label><span>Email</span><input name="email" type="email" autoComplete="email" placeholder="you@email.com" /></label><label><span>Suburb or location *</span><input name="location" required autoComplete="address-level2" placeholder="Your suburb" /></label></div>
+    <label><span>Suburb or location *</span><input name="location" required autoComplete="address-level2" placeholder="Your suburb" /></label>
     <fieldset className="service-selector"><legend>Select all services that apply *</legend><div>{services.map(service => {
       const selected = selectedServices.includes(service.shortTitle);
       return <label className={selected ? "selected" : ""} key={service.slug}><input type="checkbox" name="service" value={service.shortTitle} checked={selected} onChange={() => toggleService(service.shortTitle)} /><span>{service.shortTitle}</span></label>;
     })}</div></fieldset>
-    <label><span>Tell us about the job</span><textarea name="message" rows={4} placeholder="Tell us what you would like cleaned and anything useful about access or size" /></label>
+    <details className="optional-details"><summary>Add email or job details <span aria-hidden="true">+</span></summary><div><label><span>Email</span><input name="email" type="email" autoComplete="email" placeholder="you@email.com" /></label><label><span>Tell us about the job</span><textarea name="message" rows={3} placeholder="Anything useful about access, size or the work required" /></label></div></details>
     <label className="consent"><input type="checkbox" required name="consent" value="yes" /><span>I agree that SS Exterior Services may contact me about this enquiry.</span></label>
     {state === "error" && <p className="form-error" role="alert">{error} You can also call <a href="tel:0447130743">0447 130 743</a>.</p>}
     <button className="button form-button" disabled={state === "sending"} type="submit">{state === "sending" ? "Sending..." : "Request my free quote"}</button>

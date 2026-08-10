@@ -143,3 +143,60 @@
 @media(max-width:1050px){.desktop-nav{gap:14px;font-size:.82rem}.hero-grid{grid-template-columns:1fr 430px;gap:35px}}
 @media(max-width:900px){.hero-grid{grid-template-columns:1fr}.hero-card{max-width:560px}.quote-grid>.quote-form{justify-self:stretch;max-width:none}.social-feed-grid,.activity-preview{grid-template-columns:1fr;gap:35px}.instagram-feed{grid-column:auto}}
 @media(max-width:600px){.hero-card{padding:20px}.hero-card .field-row{grid-template-columns:1fr}.quote-grid>.quote-form{padding:22px}.service-grid{gap:12px}.service-card{min-height:auto}.embed-frame{min-height:620px}.social-feed{padding:16px}.social-feed-heading{flex-direction:column}.activity-preview{gap:20px}}
+
+/* Trust, navigation and form refinement */
+.site-header{position:fixed;background:var(--white);box-shadow:0 3px 20px rgba(24,77,25,.07)}
+.nav-dropdown-panel{border:0;box-shadow:0 20px 55px rgba(24,77,25,.14)}
+.mobile-menu>div{border:0!important}
+.service-icon,.service-mark{display:none!important}
+.service-hero-grid{grid-template-columns:1fr}
+.service-card.commercial-card{grid-column:1/-1;min-height:230px}
+.service-card.commercial-card p{max-width:720px}
+.more-services{margin:28px 0 0;color:var(--muted);font-size:1.05rem}
+
+.optional-details{margin:2px 0 16px;background:var(--cream)}
+.optional-details summary{display:flex;justify-content:space-between;align-items:center;padding:11px 13px;cursor:pointer;font-size:.75rem;font-weight:800;text-transform:uppercase;letter-spacing:.1em;list-style:none}
+.optional-details summary::-webkit-details-marker{display:none}
+.optional-details summary span{font-size:1.2rem;line-height:1}
+.optional-details[open] summary span{transform:rotate(45deg)}
+.optional-details>div{padding:4px 13px 1px}
+.hero-card .optional-details{margin-bottom:11px}
+.hero-card .optional-details label{margin-bottom:10px}
+
+.why-us{display:grid;grid-template-columns:.72fr 1.28fr;gap:100px;align-items:start}
+.why-us-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px 45px}
+.why-us-grid article{padding-top:17px;border-top:3px solid var(--lime)}
+.why-us-grid strong{font-family:var(--font-display);font-size:1.25rem}
+.why-us-grid p{color:var(--green);font-size:.92rem;margin-bottom:0}
+
+.testimonials{background:var(--white)}
+.review-score{display:grid;text-align:right}
+.review-score strong{font-size:2.6rem;line-height:1}
+.review-score span{color:var(--brand-green);letter-spacing:.12em}
+.review-score small{color:var(--green)}
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.testimonial-grid blockquote{margin:0;padding:32px;background:var(--cream)}
+.testimonial-grid blockquote p{font-size:1.08rem;margin-top:0}
+.testimonial-grid blockquote footer{font-size:.76rem;font-weight:800;color:var(--green)}
+.reviews-link{margin-top:28px}
+
+.process-heading{justify-content:center;text-align:center}
+.steps{grid-template-columns:repeat(3,1fr);gap:28px}
+.step{position:relative;margin:0;padding:42px 34px 34px;background:var(--white);border-radius:24px!important}
+.step>span{position:absolute;left:30px;top:-25px;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--brand-green);color:var(--white);font-size:1rem;box-shadow:0 9px 22px rgba(67,184,56,.22)}
+.step h3{margin:24px 0 14px}
+.process-button{display:flex;width:max-content;margin:48px auto 0}
+
+.recent-page .page-hero{padding-bottom:48px}
+.recent-page .social-section{padding-top:42px}
+.recent-page .section-heading{margin-bottom:34px}
+.instagram-feed{padding:0}
+.instagram-profile{display:flex;align-items:center;justify-content:space-between;gap:45px;text-align:left;padding:34px 38px;background:var(--white)}
+.instagram-profile>div{max-width:720px}
+.instagram-profile span{color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.68rem}
+.instagram-profile h2{font-size:1.8rem;margin:5px 0 8px}
+.instagram-profile p{margin:0;color:var(--green)}
+.instagram-profile .button{flex:0 0 auto}
+
+@media(max-width:900px){.why-us{grid-template-columns:1fr;gap:45px}.testimonial-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:44px}.instagram-profile{align-items:flex-start;flex-direction:column;gap:24px}.service-card.commercial-card{grid-column:auto}}
+@media(max-width:600px){.why-us-grid{grid-template-columns:1fr}.review-score{text-align:left}.recent-page .page-hero{padding-bottom:35px}.recent-page .social-section{padding-top:32px}.instagram-profile{padding:26px 22px}.optional-details summary{font-size:.68rem}}

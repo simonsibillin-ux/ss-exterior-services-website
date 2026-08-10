@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 export default function RecentActivityPage() {
-  return <><Header/><main>
+  return <><Header/><main className="recent-page">
     <PageHero title="What we have been up to."><p>Recent projects, cleaning transformations and updates from SS Exterior Services across Facebook, Instagram and TikTok.</p></PageHero>
     <section className="social-section section"><div className="shell"><div className="section-heading"><div><p className="eyebrow">Recent activity</p><h2>Fresh from our social pages.</h2></div><p>These feeds are supplied by each social platform, so new public activity appears here as those platforms update their embeds.</p></div><SocialEmbeds /></div></section>
   </main><Footer/></>;

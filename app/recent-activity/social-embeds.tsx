@@ -23,13 +23,7 @@ export function SocialEmbeds() {
     </article>
 
     <article className="social-feed instagram-feed">
-      <div className="social-feed-heading"><div><span>Instagram</span><h2>Latest Instagram activity</h2></div><a href={instagramUrl} target="_blank" rel="noreferrer">Open Instagram ↗</a></div>
-      <div className="instagram-profile">
-        <div className="instagram-logo" aria-hidden="true">◎</div>
-        <h3>@ssexteriorservices</h3>
-        <p>View our latest reels, project photos and before and after results directly on Instagram.</p>
-        <a className="button" href={instagramUrl} target="_blank" rel="noreferrer">View recent posts <span>↗</span></a>
-      </div>
+      <div className="instagram-profile"><div><span>Instagram</span><h2>@ssexteriorservices</h2><p>Instagram does not offer a public live profile feed. Open our profile to see the latest reels, project photos and results.</p></div><a className="button" href={instagramUrl} target="_blank" rel="noreferrer">Open Instagram <span>↗</span></a></div>
     </article>
     <Script src="https://www.tiktok.com/embed.js" strategy="lazyOnload" />
   </div>;

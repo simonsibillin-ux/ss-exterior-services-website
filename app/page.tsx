@@ -32,14 +32,13 @@ export default function Home() {
           <a className="scroll-cue" href="#services" aria-label="Scroll to services">↓</a>
         </section>
 
-        <section className="intro section shell">
-          <div>
-            <p className="eyebrow">Exterior cleaning, without the runaround</p>
-            <h2>Local service. Professional finish.</h2>
-          </div>
-          <div className="intro-copy">
-            <p>Looking after your home’s exterior takes the right equipment, care and experience. Based in Kilmore, SS Exterior Services provides reliable exterior cleaning across Mitchell Shire and surrounding regional communities.</p>
-              <p>From complete house and roof cleaning to decks, driveways, gutters and solar panels, we show up prepared, treat your property with respect and leave the job looking sharp.</p>
+        <section className="why-us section shell">
+          <div><p className="eyebrow">Why choose us</p><h2>Local, careful and properly covered.</h2></div>
+          <div className="why-us-grid">
+            <article><strong>Local service</strong><p>Kilmore based and servicing Mitchell Shire and surrounding regional communities.</p></article>
+            <article><strong>The right method</strong><p>Every surface is assessed before we select the equipment, pressure and treatment.</p></article>
+            <article><strong>$20 million insured</strong><p>Covered by $20 million public liability insurance for greater peace of mind.</p></article>
+            <article><strong>Clear communication</strong><p>Straightforward quoting, reliable arrival times and before and after photos.</p></article>
           </div>
         </section>
 
@@ -51,14 +50,14 @@ export default function Home() {
             </div>
             <div className="service-grid">
               {services.map((service) => (
-                <Link className="service-card" href={`/services/${service.slug}`} key={service.slug}>
-                  <div className="service-icon" aria-hidden="true">{service.icon}</div>
+                <Link className={`service-card ${service.slug.includes("commercial") ? "commercial-card" : ""}`} href={`/services/${service.slug}`} key={service.slug}>
                   <h3>{service.shortTitle}</h3>
                   <p>{service.summary}</p>
                   <span className="card-link">Explore service <b>→</b></span>
                 </Link>
               ))}
             </div>
+            <p className="more-services">Also: fences, retaining walls, footpaths, pool fences and more. Just ask.</p>
           </div>
         </section>
 
@@ -75,6 +74,16 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="testimonials section">
+          <div className="shell"><div className="section-heading"><div><p className="eyebrow">Google reviews</p><h2>Trusted by local property owners.</h2></div><div className="review-score"><strong>5.0</strong><span>★★★★★</span><small>58 Google reviews</small></div></div>
+            <div className="testimonial-grid">
+              <blockquote><p>“Brilliant job. Professional and thorough.”</p><footer>Mac · Google review</footer></blockquote>
+              <blockquote><p>“Simon was fantastic. Great communication, punctual, professional and did a very good job cleaning the gutters and downpipes.”</p><footer>A Kennedy · Google review</footer></blockquote>
+              <blockquote><p>“Exceptional service and quality. Great communication, with before and after photos validating a job well done.”</p><footer>Russell Sciberras · Google review</footer></blockquote>
+            </div><a className="text-link reviews-link" href="https://www.google.com/search?q=SS+Exterior+Services+Kilmore+reviews" target="_blank" rel="noreferrer">Read our Google reviews ↗</a>
+          </div>
+        </section>
+
         <section className="activity-preview section shell">
           <div><p className="eyebrow">Recent activity</p><h2>See what we have been up to.</h2></div>
           <div><p>Follow recent exterior cleaning projects, transformations and practical maintenance tips from SS Exterior Services.</p><Link className="button" href="/recent-activity">View recent activity <span>→</span></Link></div>
@@ -82,15 +91,15 @@ export default function Home() {
 
         <section className="process section">
           <div className="shell">
-            <div className="section-heading"><div><p className="eyebrow">How it works</p><h2>Simple from start to finish.</h2></div></div>
+            <div className="section-heading process-heading"><div><p className="eyebrow">How it works</p><h2>How we do it.</h2></div></div>
             <div className="steps">
               {[
-                ["01", "Get your free quote", "Call, message or send the form with the services and location you need."],
-                ["02", "We assess the job", "We check access, surfaces and safety so we use the right cleaning method."],
-                ["03", "We get stuck in", "Our professional equipment makes short work of dirt, debris, mould and grime."],
-                ["04", "Final walkthrough", "We inspect the result with you, tidy the work area and make sure you’re happy."],
+                ["1", "Quote", "We assess your property and provide a clear quote tailored to the surfaces, access and work required."],
+                ["2", "Before the appointment", "We confirm the timing, explain any preparation and plan how we will protect the surrounding property."],
+                ["3", "On the day and beyond", "We arrive prepared, complete the work carefully, share the results and explain any useful aftercare."],
               ].map(([n, title, text]) => <article className="step" key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}
             </div>
+            <a className="button process-button" href="#quote">Start my free quote <span>→</span></a>
           </div>
         </section>
 
