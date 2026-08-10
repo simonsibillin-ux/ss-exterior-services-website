@@ -1,0 +1,5 @@
+import{createClient}from"@supabase/supabase-js";
+export type ContentRecord={id:string;content_type:string;slug:string;title:string;excerpt:string;body:Record<string,unknown>;seo_title:string;seo_description:string;status:string;sort_order:number;updated_at:string};
+function publicClient(){const url=process.env.VITE_SUPABASE_URL;const key=process.env.VITE_SUPABASE_ANON_KEY;return url&&key?createClient(url,key,{auth:{persistSession:false}}):null}
+export async function getPublishedContent(contentType:string){const client=publicClient();if(!client)return[] as ContentRecord[];const{data}=await client.from("website_content").select("*").eq("content_type",contentType).eq("status","published").order("sort_order").order("updated_at",{ascending:false});return(data||[])as ContentRecord[]}
+export async function getPublishedRecord(contentType:string,slug:string){const client=publicClient();if(!client)return null;const{data}=await client.from("website_content").select("*").eq("content_type",contentType).eq("slug",slug).eq("status","published").maybeSingle();return(data||null)as ContentRecord|null}

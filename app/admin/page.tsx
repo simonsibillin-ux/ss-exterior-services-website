@@ -1,0 +1,3 @@
+import type{Metadata}from"next";import{getAdminUser}from"../../lib/supabase/server";import{AdminDashboard,AdminLogin}from"./ui";
+export const metadata:Metadata={title:"Website Admin",robots:{index:false,follow:false}};export const dynamic="force-dynamic";
+export default async function Admin(){const url=process.env.VITE_SUPABASE_URL||"";const key=process.env.VITE_SUPABASE_ANON_KEY||"";const user=await getAdminUser();return <main className="admin-shell">{user?<AdminDashboard email={user.email||""} supabaseUrl={url} supabaseKey={key}/>:<AdminLogin supabaseUrl={url} supabaseKey={key}/>}</main>}
