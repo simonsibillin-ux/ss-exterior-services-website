@@ -14,9 +14,13 @@ create table if not exists public.website_content (
   unique(content_type,slug)
 );
 alter table public.website_content enable row level security;
+drop policy if exists "Published website content is public" on public.website_content;
 create policy "Published website content is public" on public.website_content for select using (status='published' or auth.jwt()->>'email'='ssexteriorservices@outlook.com');
+drop policy if exists "Website owner can insert content" on public.website_content;
 create policy "Website owner can insert content" on public.website_content for insert to authenticated with check (auth.jwt()->>'email'='ssexteriorservices@outlook.com');
+drop policy if exists "Website owner can update content" on public.website_content;
 create policy "Website owner can update content" on public.website_content for update to authenticated using (auth.jwt()->>'email'='ssexteriorservices@outlook.com') with check (auth.jwt()->>'email'='ssexteriorservices@outlook.com');
+drop policy if exists "Website owner can delete content" on public.website_content;
 create policy "Website owner can delete content" on public.website_content for delete to authenticated using (auth.jwt()->>'email'='ssexteriorservices@outlook.com');
 create index if not exists website_content_public_idx on public.website_content(content_type,status,sort_order);
 create or replace function public.set_website_content_updated_at() returns trigger language plpgsql as $$ begin new.updated_at=now();return new;end;$$;
