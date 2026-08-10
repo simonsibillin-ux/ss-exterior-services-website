@@ -19,13 +19,14 @@ export function Header() {
       </div>
       <Link href="/service-areas">Areas</Link>
       <Link href="/resources">Resources</Link>
+      <Link href="/recent-activity">Recent activity</Link>
       <Link href="/contact">Contact</Link>
     </nav>
     <a className="nav-phone" href="tel:0447130743"><small>Call anytime</small>0447 130 743</a>
     <details className="mobile-menu"><summary aria-label="Open navigation menu"><span aria-hidden="true">☰</span></summary><div>
       <Link href="/">Home</Link><Link href="/about">About</Link><strong>Services</strong>
       {services.map(service => <Link key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</Link>)}
-      <Link href="/service-areas">Service Areas</Link><Link href="/resources">Resources</Link><Link href="/contact">Contact</Link>
+      <Link href="/service-areas">Service Areas</Link><Link href="/resources">Resources</Link><Link href="/recent-activity">Recent activity</Link><Link href="/contact">Contact</Link>
     </div></details>
   </div></header>;
 }
@@ -34,7 +35,7 @@ export function Footer() {
   return <footer className="footer"><div className="shell footer-grid">
     <div className="footer-brand"><Image src="/images/logo.png" alt="SS Exterior Services" width={510} height={330} /><p>Professional exterior cleaning across Kilmore, Mitchell Shire and surrounding communities.</p><Link className="footer-cta" href="/contact">Request a free quote</Link></div>
     <div><h3>Services</h3>{services.map(service => <Link key={service.slug} href={`/services/${service.slug}`}>{service.shortTitle}</Link>)}</div>
-    <div><h3>Explore</h3><Link href="/about">About us</Link><Link href="/service-areas">Service areas</Link><Link href="/resources">Resources</Link><Link href="/contact">Contact</Link><Link href="/admin">Website admin</Link></div>
+    <div><h3>Explore</h3><Link href="/about">About us</Link><Link href="/service-areas">Service areas</Link><Link href="/resources">Resources</Link><Link href="/recent-activity">Recent activity</Link><Link href="/contact">Contact</Link><Link href="/admin">Website admin</Link></div>
     <div><h3>Contact</h3><a href="tel:0447130743">0447 130 743</a><a href="mailto:ssexteriorservices@outlook.com">ssexteriorservices@outlook.com</a><span>Kilmore, Victoria 3764</span><span>Available 24 hours</span></div>
   </div><div className="shell footer-bottom"><span>© 2026 SS Exterior Services · ABN 93 572 816 955</span><div><Link href="/privacy-policy">Privacy</Link><Link href="/terms">Website Terms</Link></div></div></footer>;
 }

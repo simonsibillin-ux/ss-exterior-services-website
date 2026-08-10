@@ -50,9 +50,8 @@ export default function Home() {
               <p>Our highest-priority specialties appear first, followed by the supporting maintenance services that complete the property.</p>
             </div>
             <div className="service-grid">
-              {services.map((service, index) => (
+              {services.map((service) => (
                 <Link className="service-card" href={`/services/${service.slug}`} key={service.slug}>
-                  <span className="service-number">0{index + 1}</span>
                   <div className="service-icon" aria-hidden="true">{service.icon}</div>
                   <h3>{service.shortTitle}</h3>
                   <p>{service.summary}</p>
@@ -74,6 +73,11 @@ export default function Home() {
             <figure><img src="/images/facebook-roof-result-1.jpg" alt="Roof before and after cleaning by SS Exterior Services" /><figcaption>Roof cleaning result</figcaption></figure>
             <figure><img src="/images/facebook-roof-result-2.jpg" alt="Colorbond roof before and after cleaning by SS Exterior Services" /><figcaption>Colorbond result</figcaption></figure>
           </div>
+        </section>
+
+        <section className="activity-preview section shell">
+          <div><p className="eyebrow">Recent activity</p><h2>See what we have been up to.</h2></div>
+          <div><p>Follow recent exterior cleaning projects, transformations and practical maintenance tips from SS Exterior Services.</p><Link className="button" href="/recent-activity">View recent activity <span>→</span></Link></div>
         </section>
 
         <section className="process section">
