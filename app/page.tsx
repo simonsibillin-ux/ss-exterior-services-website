@@ -2,7 +2,16 @@ import Link from "next/link";
 import { Footer, Header, QuoteForm } from "./components";
 import { services } from "./services/data";
 
-const areas = ["Kilmore", "Wallan", "Seymour", "Broadford", "Lancefield", "Pyalong", "Wandong", "Beveridge"];
+const areas = [
+  { name: "Kilmore", slug: "kilmore" },
+  { name: "Wallan", slug: "wallan" },
+  { name: "Seymour", slug: "seymour" },
+  { name: "Broadford", slug: "broadford" },
+  { name: "Lancefield", slug: "lancefield" },
+  { name: "Pyalong", slug: "mitchell-shire" },
+  { name: "Wandong", slug: "mitchell-shire" },
+  { name: "Beveridge", slug: "mitchell-shire" },
+];
 
 export default function Home() {
   return (
@@ -61,19 +70,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="results section shell">
-          <div className="results-copy">
-            <p className="eyebrow">See the difference</p>
-            <h2>Built-up grime doesn’t stand a chance.</h2>
-            <p>Professional equipment and the right method for each surface deliver a deeper, safer and more even clean.</p>
-            <a className="button dark" href="#quote">Book your clean <span>→</span></a>
-          </div>
-          <div className="result-pair">
-            <figure><img src="/images/facebook-roof-result-1.jpg" alt="Roof before and after cleaning by SS Exterior Services" /><figcaption>Roof cleaning result</figcaption></figure>
-            <figure><img src="/images/facebook-roof-result-2.jpg" alt="Colorbond roof before and after cleaning by SS Exterior Services" /><figcaption>Colorbond result</figcaption></figure>
-          </div>
-        </section>
-
         <section className="testimonials section">
           <div className="shell"><div className="section-heading"><div><p className="eyebrow">Google reviews</p><h2>Trusted by local property owners.</h2></div><div className="review-score"><strong>5.0</strong><span>★★★★★</span><small>58 Google reviews</small></div></div>
             <div className="testimonial-grid">
@@ -82,11 +78,6 @@ export default function Home() {
               <blockquote><p>“Exceptional service and quality. Great communication, with before and after photos validating a job well done.”</p><footer>Russell Sciberras · Google review</footer></blockquote>
             </div><a className="text-link reviews-link" href="https://www.google.com/search?q=SS+Exterior+Services+Kilmore+reviews" target="_blank" rel="noreferrer">Read our Google reviews ↗</a>
           </div>
-        </section>
-
-        <section className="activity-preview section shell">
-          <div><p className="eyebrow">Recent activity</p><h2>See what we have been up to.</h2></div>
-          <div><p>Follow recent exterior cleaning projects, transformations and practical maintenance tips from SS Exterior Services.</p><Link className="button" href="/recent-activity">View recent activity <span>→</span></Link></div>
         </section>
 
         <section className="process section">
@@ -103,6 +94,29 @@ export default function Home() {
           </div>
         </section>
 
+        <section className="areas section shell">
+          <div className="areas-copy"><p className="eyebrow">Areas we service</p><h2>Across Mitchell Shire and beyond.</h2><p>We regularly work throughout Kilmore, Wallan, Seymour, Lancefield, Broadford and nearby regional communities. If you’re just outside the area, give us a call. We can often travel further.</p></div>
+          <div className="area-list">{areas.map(area => <Link href={`/service-areas/${area.slug}`} key={area.name}>{area.name}<b>↗</b></Link>)}</div>
+        </section>
+
+        <section className="results section shell">
+          <div className="results-copy">
+            <p className="eyebrow">See the difference</p>
+            <h2>Built-up grime doesn’t stand a chance.</h2>
+            <p>Professional equipment and the right method for each surface deliver a deeper, safer and more even clean.</p>
+            <a className="button dark" href="#quote">Book your clean <span>→</span></a>
+          </div>
+          <div className="result-pair">
+            <figure><img src="/images/facebook-roof-result-1.jpg" alt="Roof before and after cleaning by SS Exterior Services" /><figcaption>Roof cleaning result</figcaption></figure>
+            <figure><img src="/images/facebook-roof-result-2.jpg" alt="Colorbond roof before and after cleaning by SS Exterior Services" /><figcaption>Colorbond result</figcaption></figure>
+          </div>
+        </section>
+
+        <section className="activity-preview section shell">
+          <div><p className="eyebrow">Recent activity</p><h2>See what we have been up to.</h2></div>
+          <div><p>Follow recent exterior cleaning projects, transformations and practical maintenance tips from SS Exterior Services.</p><Link className="button" href="/recent-activity">View recent activity <span>→</span></Link></div>
+        </section>
+
         <section className="about section" id="about">
           <div className="shell about-grid">
             <div className="about-image"><img src="/images/window-cleaning.jpg" alt="SS Exterior Services cleaning windows in Kilmore Victoria" /><span>Locally owned<br />and operated</span></div>
@@ -114,11 +128,6 @@ export default function Home() {
               <div className="about-stats"><div><strong>Local</strong><span>Kilmore based</span></div><div><strong>Flexible</strong><span>24/7 availability</span></div><div><strong>Thorough</strong><span>No shortcuts</span></div></div><a className="text-link light-link about-link" href="/about">Read our story →</a>
             </div>
           </div>
-        </section>
-
-        <section className="areas section shell">
-          <div className="areas-copy"><p className="eyebrow">Areas we service</p><h2>Across Mitchell Shire and beyond.</h2><p>We regularly work throughout Kilmore, Wallan, Seymour, Lancefield, Broadford and nearby regional communities. If you’re just outside the area, give us a call. We can often travel further.</p></div>
-          <div className="area-list">{areas.map(area => <span key={area}>{area}<b>↗</b></span>)}</div>
         </section>
 
         <section className="quote-section section" id="quote">
