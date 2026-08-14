@@ -46,6 +46,13 @@
 
 .result-pair img{aspect-ratio:5/4}
 .result-pair figcaption{background:var(--lime);color:var(--ink)}
+.project-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.project-gallery figure{margin:0;background:#fff;overflow:hidden;box-shadow:0 12px 32px rgba(24,77,25,.08)}
+.project-gallery img{display:block;width:100%;height:auto;aspect-ratio:5/4;object-fit:contain;background:#fff;transition:transform .3s ease}
+.project-gallery figure:hover img{transform:scale(1.015)}
+.project-gallery figcaption{padding:11px 14px;background:var(--lime);color:var(--ink);font-size:.72rem;font-weight:800;text-transform:uppercase;letter-spacing:.08em}
+.featured-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+.service-project-gallery{grid-template-columns:repeat(3,minmax(0,1fr))}
 .footer{background:var(--lime);color:var(--ink)}
 .footer h3{color:var(--ink)}
 .footer-grid a:hover{color:var(--green)}
@@ -196,6 +203,7 @@
 .instagram-profile span{color:var(--green);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.68rem}
 .instagram-profile h2{font-size:1.8rem;margin:5px 0 8px}
 .instagram-profile p{margin:0;color:var(--green)}
+
 .instagram-profile .button{flex:0 0 auto}
 
 @media(max-width:900px){.why-us{grid-template-columns:1fr;gap:45px}.testimonial-grid{grid-template-columns:1fr}.steps{grid-template-columns:1fr;gap:44px}.instagram-profile{align-items:flex-start;flex-direction:column;gap:24px}.service-card.commercial-card{grid-column:auto}}
@@ -276,3 +284,6 @@
 
 @media(max-width:900px){.hero-copy{margin-top:0}.hero-card{margin-top:20px}}
 @media(prefers-reduced-motion:reduce){.optional-details>div,.optional-details summary span,.optional-summary span{transition:none}}
+
+@media(max-width:900px){.service-project-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:600px){.featured-gallery,.service-project-gallery{grid-template-columns:1fr}.project-gallery{gap:12px}}

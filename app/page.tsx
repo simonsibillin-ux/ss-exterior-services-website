@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Footer, Header, QuoteForm } from "./components";
+import { featuredProjects } from "./project-images";
 import { services } from "./services/data";
 
 const areas = [
@@ -106,9 +108,13 @@ export default function Home() {
             <p>Professional equipment and the right method for each surface deliver a deeper, safer and more even clean.</p>
             <a className="button dark" href="#quote">Book your clean <span>→</span></a>
           </div>
-          <div className="result-pair">
-            <figure><img src="/images/facebook-roof-result-1.jpg" alt="Roof before and after cleaning by SS Exterior Services" /><figcaption>Roof cleaning result</figcaption></figure>
-            <figure><img src="/images/facebook-roof-result-2.jpg" alt="Colorbond roof before and after cleaning by SS Exterior Services" /><figcaption>Colorbond result</figcaption></figure>
+          <div className="project-gallery featured-gallery">
+            {featuredProjects.map((image) => (
+              <figure key={image.src}>
+                <Image src={image.src} alt={image.alt} width={1350} height={1080} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 28vw" />
+                <figcaption>{image.caption}</figcaption>
+              </figure>
+            ))}
           </div>
         </section>
 
