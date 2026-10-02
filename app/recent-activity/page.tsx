@@ -11,6 +11,6 @@ export const metadata: Metadata = {
 export default function RecentActivityPage() {
   return <><Header/><main className="recent-page">
     <PageHero title="What we have been up to."><p>Recent projects, cleaning transformations and updates from SS Exterior Services across Facebook, Instagram and TikTok.</p></PageHero>
-    <section className="social-section section"><div className="shell"><div className="section-heading"><div><h2>Fresh from our social pages.</h2></div><p>Facebook updates appear below. Use the Instagram and TikTok links to see the newest posts directly from each profile.</p></div><SocialEmbeds /></div></section>
+    <section className="social-section section"><div className="shell"><div className="section-heading"><div><h2>Fresh from our social pages.</h2></div><p>Preview recent project content below, then open each social profile for its newest public posts and videos.</p></div><SocialEmbeds /></div></section>
   </main><Footer/></>;
 }

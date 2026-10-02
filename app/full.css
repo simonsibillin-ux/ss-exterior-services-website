@@ -559,3 +559,40 @@ main:not(.home-v2) .project-gallery figcaption{background:#fff;color:var(--inter
 
 @media(max-width:900px){.service-category-links{grid-template-columns:1fr}.service-category-links>a:nth-child(odd){border-right:0}.service-category-links .category-quote-link{grid-column:auto}}
 @media(max-width:600px){.service-category-copy{padding:28px 24px}.service-category-links>a{min-height:auto;padding:21px 24px}.recent-page .page-hero{padding:165px 0 82px}.recent-page .social-section{padding-top:70px}.social-profile-card{min-height:340px;padding:32px 24px}}
+
+/* Final service-category alignment */
+.service-category-copy{display:block}
+.service-category-copy h2{margin-top:0}
+
+/* Area pages use the same three clear service groups as the main Services page. */
+.area-service-section{display:grid;grid-template-columns:.62fr 1.38fr;gap:76px;align-items:start}
+.area-service-intro{position:sticky;top:140px}
+.area-service-intro h2{font-size:clamp(2.5rem,4vw,4rem)}
+.area-service-intro p{color:#526653}
+.area-service-groups{display:grid;gap:24px}
+.area-service-groups>article{border:1px solid #173b31;background:#fff}
+.area-service-groups>article>header{padding:30px 32px;background:#edf4e9;border-bottom:1px solid #cad5c7}
+.area-service-groups>article>header h2{font-size:2rem;margin:0 0 10px}
+.area-service-groups>article>header p{margin:0;color:#526653}
+.area-service-groups>article>div{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.area-service-groups a{display:flex;min-height:128px;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;border-bottom:1px solid #cad5c7;color:#071007}
+.area-service-groups a:nth-child(odd){border-right:1px solid #cad5c7}
+.area-service-groups a:hover{background:#f3f6ee}
+.area-service-groups a>span{display:grid;gap:7px}
+.area-service-groups a small{color:#526653;line-height:1.4}
+.area-service-groups a>b{color:#2f7633;font-size:1.2rem}
+
+/* Resilient visual previews for networks that do not provide live profile feeds. */
+.social-preview-feed{display:flex;min-height:720px;flex-direction:column}
+.social-preview-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.social-preview-grid>a{position:relative;min-height:245px;overflow:hidden;background:#071007;color:#fff}
+.social-preview-grid>a:first-child{grid-column:1/-1;min-height:330px}
+.social-preview-grid img{object-fit:cover;transition:transform .3s ease}
+.social-preview-grid>a:hover img{transform:scale(1.035)}
+.social-preview-grid>a:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgba(7,16,7,.88))}
+.social-preview-grid strong{position:absolute;z-index:2;left:18px;right:18px;bottom:17px;font-size:.9rem}
+.video-play{position:absolute;z-index:2;left:18px;top:18px;display:grid;width:44px;height:44px;place-items:center;border-radius:50%;background:#a9ff4f;color:#071007;font-size:.8rem}
+.social-feed-cta{display:flex;justify-content:space-between;margin-top:auto;padding:20px 2px 2px;color:#184d19;font-weight:850}
+
+@media(max-width:900px){.area-service-section{grid-template-columns:1fr;gap:46px}.area-service-intro{position:static}}
+@media(max-width:600px){.area-service-groups>article>div,.social-preview-grid{grid-template-columns:1fr}.area-service-groups a:nth-child(odd){border-right:0}.area-service-groups a{min-height:auto}.social-preview-grid>a,.social-preview-grid>a:first-child{grid-column:auto;min-height:250px}.social-preview-feed{min-height:auto}}

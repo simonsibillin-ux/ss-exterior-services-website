@@ -17,8 +17,8 @@ export default function ServicesPage(){
     <section className="service-overview section shell" id="services-list">
       <div className="service-overview-intro"><p className="eyebrow">Three clear service groups</p><h2>Start with what you need cleaned.</h2><p>You do not need to know whether a surface needs pressure, softwashing or a treatment. Tell us what needs attention and we’ll recommend the right approach.</p></div>
       <div className="service-category-list">
-        {serviceCategories.map((category,index)=><article id={category.slug} key={category.slug}>
-          <header className="service-category-copy"><span>0{index+1}</span><div><h2>{category.title}</h2><p>{category.summary}</p></div></header>
+        {serviceCategories.map((category)=><article id={category.slug} key={category.slug}>
+          <header className="service-category-copy"><div><h2>{category.title}</h2><p>{category.summary}</p></div></header>
           <div className="service-category-links">{category.serviceSlugs.map(slug=>{const service=allServices.find(item=>item.slug===slug);return service?<Link href={`/services/${service.slug}`} key={slug}><span><strong>{service.shortTitle}</strong><small>{service.summary}</small></span><ArrowRight size={18}/></Link>:null})}<Link className="category-quote-link" href="/contact">Request a free quote <ArrowRight size={18}/></Link></div>
         </article>)}
       </div>
