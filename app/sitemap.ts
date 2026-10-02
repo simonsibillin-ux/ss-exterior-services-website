@@ -1,2 +1,37 @@
-import type{MetadataRoute}from"next";import{services}from"./services/data";import{posts, serviceAreas}from"./content";
-export default function sitemap():MetadataRoute.Sitemap{const base="https://ssexteriorservices.com.au";const now=new Date();return[{url:base, lastModified:now, changeFrequency:"weekly", priority:1},{url:`${base}/about`, lastModified:now, changeFrequency:"yearly", priority:.7},{url:`${base}/contact`, lastModified:now, changeFrequency:"yearly", priority:.8},{url:`${base}/service-areas`, lastModified:now, changeFrequency:"monthly", priority:.8},{url:`${base}/resources`, lastModified:now, changeFrequency:"weekly", priority:.6},{url:`${base}/recent-activity`, lastModified:now, changeFrequency:"daily", priority:.7},{url:`${base}/privacy-policy`, lastModified:now, changeFrequency:"yearly", priority:.2},...services.map(s=>({url:`${base}/services/${s.slug}`, lastModified:now, changeFrequency:"monthly"as const, priority:.9})),...serviceAreas.map(a=>({url:`${base}/service-areas/${a.slug}`, lastModified:now, changeFrequency:"monthly"as const, priority:.75})),...posts.map(p=>({url:`${base}/resources/${p.slug}`, lastModified:new Date(p.date), changeFrequency:"yearly"as const, priority:.55}))]}
+import type { MetadataRoute } from "next";
+import { posts, serviceAreas } from "./content";
+import { routableServices } from "./services/data";
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = "https://ssexteriorservices.com.au";
+  const siteUpdated = new Date("2026-10-02");
+
+  return [
+    { url: base, lastModified: siteUpdated, changeFrequency: "weekly", priority: 1 },
+    { url: `${base}/about`, lastModified: siteUpdated, changeFrequency: "yearly", priority: 0.7 },
+    { url: `${base}/contact`, lastModified: siteUpdated, changeFrequency: "yearly", priority: 0.8 },
+    { url: `${base}/services`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${base}/service-areas`, lastModified: siteUpdated, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/resources`, lastModified: siteUpdated, changeFrequency: "weekly", priority: 0.6 },
+    { url: `${base}/recent-activity`, lastModified: siteUpdated, changeFrequency: "daily", priority: 0.7 },
+    { url: `${base}/privacy-policy`, lastModified: siteUpdated, changeFrequency: "yearly", priority: 0.2 },
+    ...routableServices.map((service) => ({
+      url: `${base}/services/${service.slug}`,
+      lastModified: siteUpdated,
+      changeFrequency: "monthly" as const,
+      priority: 0.9,
+    })),
+    ...serviceAreas.map((area) => ({
+      url: `${base}/service-areas/${area.slug}`,
+      lastModified: siteUpdated,
+      changeFrequency: "monthly" as const,
+      priority: 0.75,
+    })),
+    ...posts.map((post) => ({
+      url: `${base}/resources/${post.slug}`,
+      lastModified: new Date(post.date),
+      changeFrequency: "yearly" as const,
+      priority: 0.55,
+    })),
+  ];
+}

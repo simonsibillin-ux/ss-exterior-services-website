@@ -1,0 +1,6 @@
+dist
+tmp
+.wrangler
+node_modules 2
+app/services/data 2.ts
+tsconfig.tsbuildinfo

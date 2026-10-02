@@ -1,6 +1,157 @@
-import type { Metadata } from "next";import Link from "next/link";import {Footer, Header, PageHero, QuoteBand} from "../components";import{getPublishedRecord}from"../../lib/content";
-export const metadata:Metadata={title:"About SS Exterior Services", description:"Meet Simon and learn how SS Exterior Services approaches exterior cleaning across Kilmore and Mitchell Shire.", alternates:{canonical:"/about"}};
-export default async function About(){const managed=await getPublishedRecord("page","about");const paragraphs=String(managed?.body?.content||"").split(/\n\n+/).filter(Boolean);return <><Header/><main><PageHero eyebrow="About SS Exterior Services" title={managed?.title||"Local knowledge. Honest advice. Work we stand behind."}><p>{managed?.excerpt||"Based in Kilmore and run by Simon, SS Exterior Services helps homeowners and businesses maintain cleaner, better-presented properties across Mitchell Shire and surrounding regional communities."}</p></PageHero>
-<section className="story section shell"><div><p className="eyebrow">Our story</p><h2>Built through hard work and word of mouth.</h2></div><div>{paragraphs.length?paragraphs.map((p, i)=><p key={i}>{p}</p>):<><p>SS Exterior Services began with a straightforward goal: make exterior property maintenance easier for local residents. What started as practical work for nearby homeowners has grown through repeat customers, referrals and a reputation for showing up prepared.</p><p>Simon remains closely involved, from the first conversation and site assessment through to the final walkthrough. That means customers receive clear advice from someone who understands the work, rather than a generic sales process.</p><p>We service established homes, newer estates, rural properties and suitable commercial sites. The job may be a complete exterior refresh or one carefully scoped maintenance service; either way, the same attention goes into planning access, choosing the method and protecting the property.</p></>}</div></section>
-<section className="values section"><div className="shell"><div className="section-heading"><div><p className="eyebrow">What matters to us</p><h2>The standard behind every job.</h2></div></div><div className="value-grid">{[["01","Surface before speed","We identify the material, coating and condition before selecting pressure or treatment."],["02","Straight answers","We explain what is suitable, what may not fully disappear and what the job includes."],["03","Property respect","Access, plants, fixtures, water tanks, runoff and surrounding areas form part of the plan."],["04","A proper finish","We work methodically, tidy the area and complete a final check before leaving."]].map(v=><article key={v[0]}><span>{v[0]}</span><h3>{v[1]}</h3><p>{v[2]}</p></article>)}</div></div></section>
-<section className="credentials section shell"><div><p className="eyebrow">Why customers choose us</p><h2>A local operator, backed by a considered process.</h2></div><div className="credential-list"><p>✓ Kilmore based and locally operated</p><p>✓ Professional surface specific equipment</p><p>✓ Residential and commercial capability</p><p>✓ Flexible 24 hour availability</p><p>✓ Clear, obligation free quoting</p><p>✓ Service throughout Mitchell Shire and beyond</p></div><Link className="button dark" href="/contact">Request a quote →</Link></section><QuoteBand/></main><Footer/></>}
+import type { Metadata } from "next";
+import Link from "next/link";
+import { Camera, Check } from "lucide-react";
+import { Footer, Header, PageHero, QuoteBand } from "../components";
+
+export const metadata: Metadata = {
+  title: "About SS Exterior Services",
+  description:
+    "Meet Simon and discover the considered, surface-specific approach behind SS Exterior Services in Kilmore and Mitchell Shire.",
+  alternates: { canonical: "/about" },
+};
+
+const values = [
+  ["01", "Assess before acting", "We inspect the material, coating, condition and surrounding property before deciding how the project should be approached."],
+  ["02", "Use the correct method", "The safest, most suitable process for the surface matters more than simply reaching for the most powerful equipment."],
+  ["03", "Explain the project clearly", "You receive straightforward advice, a clear scope and answers to your questions before the work begins."],
+  ["04", "Finish with pride", "We work thoroughly, respect the property and complete a final walkthrough so you can see the result for yourself."],
+];
+
+export default function About() {
+  return (
+    <>
+      <Header />
+      <main>
+        <PageHero
+          eyebrow="About SS Exterior Services"
+          title="Proper work starts with understanding the surface."
+        >
+          <p>
+            SS Exterior Services is a family-run Kilmore business built around one
+            simple standard: do the work properly. Every material, coating and
+            property receives an individual approach, not a one-size-fits-all clean.
+          </p>
+        </PageHero>
+
+        <section className="story section shell">
+          <div>
+            <p className="eyebrow">Our approach</p>
+            <h2>We call them projects, not jobs.</h2>
+          </div>
+          <div>
+            <p>
+              A job can sound like something to get through. A project deserves
+              preparation, thought and effort. That distinction reflects how we
+              approach every property at SS Exterior Services.
+            </p>
+            <p>
+              Before work begins, we take the time to understand the surface, its
+              condition and the result you want to achieve. We choose methods around
+              the material in front of us and follow relevant manufacturer guidance
+              and applicable warranty requirements.
+            </p>
+            <p>
+              We explain what we recommend, how we plan to complete the project and
+              what you can realistically expect. Questions are always welcome,
+              because you should feel confident about the work being carried out on
+              your property.
+            </p>
+          </div>
+        </section>
+
+        <section className="surface-principle section">
+          <div className="shell surface-principle-grid">
+            <div>
+              <p className="eyebrow">The right approach</p>
+              <h2>Every surface deserves individual care.</h2>
+            </div>
+            <div>
+              <p>
+                Weatherboard, render, brick, Colorbond, roof tile, concrete, pavers
+                and timber all respond differently. Their age, coating and condition
+                matter too.
+              </p>
+              <p>
+                Our role is to select the correct process, not simply the strongest
+                one. That means considering chemistry, pressure, dwell time, access,
+                drainage, plants and nearby fixtures before cleaning begins.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section className="meet-simon section shell">
+          <div className="founder-photo" role="img" aria-label="Future photograph of Simon Sibillin on site">
+            <Camera size={42} strokeWidth={1.6} aria-hidden="true" />
+            <strong>Meet Simon</strong>
+            <span>Future on-site portrait</span>
+          </div>
+          <div className="founder-copy">
+            <p className="eyebrow">Founder &amp; Director</p>
+            <h2>Meet Simon Sibillin.</h2>
+            <p>
+              I come from a hardworking family of business owners who built their
+              way up from the ground. From a young age, I learned that lasting results
+              come from persistence, responsibility and taking genuine pride in the
+              work attached to your name.
+            </p>
+            <p>
+              Those values became the foundation of SS Exterior Services. I remain
+              closely involved, from the first conversation and property assessment
+              through to the work itself and the final walkthrough. Clients deal with
+              someone who understands their project and cares about its outcome.
+            </p>
+            <p>
+              As we grow, the goal stays the same: build a trusted local business by
+              doing the right work, using the right methods and standing behind the
+              standard we set.
+            </p>
+          </div>
+        </section>
+
+        <section className="values section">
+          <div className="shell">
+            <div className="section-heading">
+              <div>
+                <p className="eyebrow">What guides our work</p>
+                <h2>The standard behind every project.</h2>
+              </div>
+            </div>
+            <div className="value-grid">
+              {values.map(([number, title, description]) => (
+                <article key={number}>
+                  <span>{number}</span>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="credentials section shell">
+          <div>
+            <p className="eyebrow">Family-run and aligned</p>
+            <h2>Built on shared standards.</h2>
+          </div>
+          <div className="credential-list">
+            <p><Check size={18} aria-hidden="true" /> Careful preparation</p>
+            <p><Check size={18} aria-hidden="true" /> Clear communication</p>
+            <p><Check size={18} aria-hidden="true" /> Surface-specific methods</p>
+            <p><Check size={18} aria-hidden="true" /> Respect for your property</p>
+            <p><Check size={18} aria-hidden="true" /> Thorough final checks</p>
+            <p><Check size={18} aria-hidden="true" /> Long-term local trust</p>
+          </div>
+          <p className="credentials-closing">
+            Exterior cleaning done right isn’t the quickest possible clean. It’s the
+            correct process, completed thoroughly, by people who care about the result.
+          </p>
+          <Link className="button dark" href="/contact">Discuss your project →</Link>
+        </section>
+
+        <QuoteBand />
+      </main>
+      <Footer />
+    </>
+  );
+}

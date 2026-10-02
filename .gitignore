@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/node_modules 2/
+/app/services/data 2.ts
 /.pnp
 .pnp.*
 .yarn/*

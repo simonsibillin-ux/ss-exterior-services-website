@@ -8,6 +8,16 @@ const project = (file: string, service: string, location: string): ProjectImage 
 
 export const projectImages: Record<string, ProjectImage[]> = {
   "house-washing-kilmore": [
+    {
+      src: "/images/projects/house-washing/before-after-wallan.jpg",
+      alt: "Before and after house washing around a window in Wallan by SS Exterior Services",
+      caption: "House washing · Wallan",
+    },
+    {
+      src: "/images/projects/house-washing/before-after-mitchell-shire.jpg",
+      alt: "Before and after house washing weatherboards in Mitchell Shire by SS Exterior Services",
+      caption: "House washing · Mitchell Shire",
+    },
     project("house-washing-kilmore-2", "House washing", "Kilmore"),
     project("house-washing-kilmore-1", "House washing", "Kilmore"),
     project("soft-washing-wallan-1", "Soft washing", "Wallan"),

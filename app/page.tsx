@@ -1,8 +1,10 @@
-import Link from "next/link";
 import Image from "next/image";
+import Link from "next/link";
+import { ArrowRight, BadgeCheck, Camera, Check, MapPin, ShieldCheck, Star } from "lucide-react";
 import { Footer, Header, QuoteForm } from "./components";
 import { featuredProjects } from "./project-images";
-import { services } from "./services/data";
+import { ReviewReel } from "./review-reel";
+import { serviceCategories } from "./services/data";
 
 const areas = [
   { name: "Kilmore", slug: "kilmore" },
@@ -15,131 +17,134 @@ const areas = [
   { name: "Beveridge", slug: "mitchell-shire" },
 ];
 
+const reviews = [
+  ["Brilliant job. Professional and thorough.", "Mac"],
+  ["Great communication, punctual, professional and a very good job cleaning the gutters and downpipes.", "A Kennedy"],
+  ["Exceptional service and quality, with before and after photos validating a job well done.", "Russell Sciberras"],
+  ["Simon did an excellent job with our gutters. Everything was done perfectly and professionally. He was friendly, reliable, and easy to deal with.", "Akashdeep Singh"],
+  ["Simon is prompt in responding to enquiries, thorough and very professional. We were very happy with the results and would not hesitate in recommending him.", "Sarah Mihailovic"],
+  ["So professional and pleasant. This is my third time with Simon because ever since the first clean they are giving me better output and making my bills cheaper.", "Simone Ricco"],
+  ["Both times, I found him to be very professional and he takes pride in his work. I would highly recommend him and will be calling on his services in the future.", "Stephen Bryant"],
+  ["They’ve done a very, very good job! They are also very honest people. If this had 10 stars I would happily give more.", "Hung Van Pham"],
+  ["Simon did a fantastic cleaning job on my solar panels. They now look brand new and the price was good. Will use Simon for future cleaning jobs.", "John"],
+  ["Simon was professional and his attention to detail was outstanding. We would highly recommend SS Exterior Services.", "Brett Collins"],
+  ["On time, correct quote, cleaned everything out and cleaned up at the end. Very happy with Simon’s work. I will strongly recommend him to others.", "Neen Franks"],
+  ["Excellent job on gutters and solar panels. Worked hard all day. Will recommend Simon to everyone.", "Janina"],
+  ["Absolutely fantastic job and reasonably priced. Did our whole property for the price some companies quoted for just the front.", "Daniel"],
+] as const;
+
+const googleReviewsUrl = "https://www.google.com/maps/search/?api=1&query=SS%20Exterior%20Services%20Kilmore%20Victoria";
+
 export default function Home() {
   return (
     <>
       <Header />
-      <main>
-        <section className="hero">
-          <div className="hero-shade" />
-          <div className="shell hero-grid">
-            <div className="hero-copy reveal">
-              <h1>A cleaner exterior.<br /><em>A better first impression.</em></h1>
-              <p className="hero-lead">Specialist house washing, roof cleaning and surface pressure washing, supported by complete exterior maintenance across Kilmore and Mitchell Shire.</p>
-              <div className="hero-actions">
-                <a className="button" href="#quote">Get a free quote <span>→</span></a>
-                <a className="text-link light-link" href="tel:0447130743">Call 0447 130 743</a>
+      <main className="home-v2">
+        <section className="hv2-hero">
+          <div className="hv2-hero-photo" role="img" aria-label="Placeholder for a future SS Exterior Services team or vehicle photograph">
+            <div className="hv2-photo-note"><Camera aria-hidden="true" /><span>Future hero photo</span><small>Team, vehicle or equipment on-site</small></div>
+          </div>
+          <div className="hv2-hero-overlay" />
+          <div className="shell hv2-hero-content">
+            <div className="hv2-hero-copy reveal">
+              <h1>Exterior cleaning. <em>Done right.</em></h1>
+              <p>Professional house washing, roof cleaning and pressure washing that cuts through grime and brings back street appeal.</p>
+              <div className="hv2-actions">
+                <a className="hv2-button" href="#quote">Get a free quote <ArrowRight size={19} /></a>
+                <a className="hv2-button hv2-button-ghost" href="#services">Explore services</a>
               </div>
-              <div className="trust-row">
-                <span>✓ Fully equipped</span><span>✓ Quality workmanship</span><span>✓ 24/7 availability</span>
-              </div>
-            </div>
-            <div className="hero-card reveal delay">
-              <p className="eyebrow">Free quote</p>
-              <h2>Tell us what needs cleaning.</h2>
-              <QuoteForm />
+              <div className="hv2-google"><span className="hv2-stars">★★★★★</span><strong>5.0 on Google</strong><span>60 local reviews</span></div>
             </div>
           </div>
-          <a className="scroll-cue" href="#services" aria-label="Scroll to services">↓</a>
-        </section>
-
-        <section className="why-us section shell">
-          <div><p className="eyebrow">Why choose us</p><h2>Local, careful and properly covered.</h2></div>
-          <div className="why-us-grid">
-            <article><strong>Local service</strong><p>Kilmore based and servicing Mitchell Shire and surrounding regional communities.</p></article>
-            <article><strong>The right method</strong><p>Every surface is assessed before we select the equipment, pressure and treatment.</p></article>
-            <article><strong>$20 million insured</strong><p>Covered by $20 million public liability insurance for greater peace of mind.</p></article>
-            <article><strong>Clear communication</strong><p>Straightforward quoting, reliable arrival times and before and after photos.</p></article>
+          <div className="shell hv2-trust-strip" data-motion-group>
+            <article><Star aria-hidden="true" /><div><strong>Top-rated local service</strong><span>Trusted across the region</span></div></article>
+            <article><ShieldCheck aria-hidden="true" /><div><strong>$20m insured</strong><span>Work completed with care</span></div></article>
+            <article><BadgeCheck aria-hidden="true" /><div><strong>The right method</strong><span>Every surface assessed</span></div></article>
+            <article><MapPin aria-hidden="true" /><div><strong>Kilmore based</strong><span>Mitchell Shire and beyond</span></div></article>
           </div>
         </section>
 
-        <section className="services section" id="services">
+        <section className="hv2-intro section shell">
+          <div>
+            <h2>Proper methods.<br /><em>Standout results.</em></h2>
+          </div>
+          <div className="hv2-intro-copy">
+            <p>Built-up dirt, mould and organic growth can make a good property look tired. SS Exterior Services uses professional equipment and a surface-specific approach to restore a cleaner, sharper finish.</p>
+            <p>From the first quote to the final rinse, you get clear communication, careful preparation and work we are proud to put our name on.</p>
+            <Link className="hv2-text-link" href="/about">Meet SS Exterior Services <ArrowRight size={17} /></Link>
+          </div>
+        </section>
+
+        <div className="hv2-transition hv2-transition-deep" aria-hidden="true"><span /></div>
+
+        <section className="hv2-services section" id="services">
           <div className="shell">
-            <div className="section-heading">
-              <div><p className="eyebrow">What we do</p><h2>Every surface, sorted.</h2></div>
-              <p>Our highest-priority specialties appear first, followed by the supporting maintenance services that complete the property.</p>
+            <div className="hv2-section-head">
+              <div><h2>Every surface deserves<br /><em>the right approach.</em></h2></div>
+              <p>A driveway, rendered wall, Colorbond roof and timber deck should never be cleaned the same way. We assess the material and condition before choosing the safest, most effective method.</p>
             </div>
-            <div className="service-grid">
-              {services.map((service) => (
-                <Link className={`service-card ${service.slug.includes("commercial") ? "commercial-card" : ""}`} href={`/services/${service.slug}`} key={service.slug}>
-                  <h3>{service.shortTitle}</h3>
-                  <p>{service.summary}</p>
-                  <span className="card-link">Explore service <b>→</b></span>
+            <div className="hv2-service-grid" data-motion-group>
+              {serviceCategories.map((category) => (
+                <Link className="hv2-service-card" href={category.href} key={category.slug}>
+                  <h3>{category.title}</h3>
+                  <p>{category.summary}</p>
+                  <ul>{category.items.map(item=><li key={item}>{item}</li>)}</ul>
+                  <span className="hv2-card-link">Explore services <ArrowRight size={17} /></span>
                 </Link>
               ))}
             </div>
-            <p className="more-services">Also: fences, retaining walls, footpaths, pool fences and more. Just ask.</p>
           </div>
         </section>
 
-        <section className="testimonials section">
-          <div className="shell"><div className="section-heading"><div><p className="eyebrow">Google reviews</p><h2>Trusted by local property owners.</h2></div><div className="review-score"><strong>5.0</strong><span>★★★★★</span><small>58 Google reviews</small></div></div>
-            <div className="testimonial-grid">
-              <blockquote><p>“Brilliant job. Professional and thorough.”</p><footer>Mac · Google review</footer></blockquote>
-              <blockquote><p>“Simon was fantastic. Great communication, punctual, professional and did a very good job cleaning the gutters and downpipes.”</p><footer>A Kennedy · Google review</footer></blockquote>
-              <blockquote><p>“Exceptional service and quality. Great communication, with before and after photos validating a job well done.”</p><footer>Russell Sciberras · Google review</footer></blockquote>
-            </div><a className="text-link reviews-link" href="https://www.google.com/search?q=SS+Exterior+Services+Kilmore+reviews" target="_blank" rel="noreferrer">Read our Google reviews ↗</a>
+        <div className="hv2-transition hv2-transition-white" aria-hidden="true"><span /></div>
+
+        <section className="hv2-showcase section shell">
+          <div className="hv2-showcase-copy">
+            <h2>A proper result starts before the cleaning does.</h2>
+            <p>Good exterior cleaning is about more than powerful equipment. We consider the surface, coating, access, drainage, plants, fixtures and surrounding areas before work begins.</p>
+            <ul><li><Check size={18} /> Surface-specific cleaning</li><li><Check size={18} /> Careful property protection</li><li><Check size={18} /> Before and after photos</li></ul>
+            <a className="hv2-button hv2-button-dark" href="#quote">Book your clean <ArrowRight size={19} /></a>
+          </div>
+          <div className="hv2-photo-stack">
+            <figure className="hv2-project-photo main-photo"><Image src={featuredProjects[0].src} alt={featuredProjects[0].alt} fill sizes="(max-width: 900px) 100vw, 55vw" /><figcaption>{featuredProjects[0].caption}</figcaption></figure>
+            <figure className="hv2-project-photo side-photo"><Image src={featuredProjects[2].src} alt={featuredProjects[2].alt} fill sizes="(max-width: 600px) 42vw, 22vw" /><figcaption>{featuredProjects[2].caption}</figcaption></figure>
+            <div className="hv2-future-photo"><Camera aria-hidden="true" /><strong>Future action photo</strong><span>Drop in a close-up of the team at work</span></div>
           </div>
         </section>
 
-        <section className="process section">
+        <div className="hv2-transition hv2-transition-soft" aria-hidden="true"><span /></div>
+
+        <section className="hv2-process section">
           <div className="shell">
-            <div className="section-heading process-heading"><div><p className="eyebrow">How it works</p><h2>How we do it.</h2></div></div>
-            <div className="steps">
+            <div className="hv2-section-head dark-head"><div><h2>Three steps to a<br /><em>cleaner property.</em></h2></div></div>
+            <div className="hv2-steps" data-motion-group>
               {[
-                ["1", "Quote", "We assess your property and provide a clear quote tailored to the surfaces, access and work required."],
-                ["2", "Before the appointment", "We confirm the timing, explain any preparation and plan how we will protect the surrounding property."],
-                ["3", "On the day and beyond", "We arrive prepared, complete the work carefully, share the results and explain any useful aftercare."],
-              ].map(([n, title, text]) => <article className="step" key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}
-            </div>
-            <a className="button process-button" href="#quote">Start my free quote <span>→</span></a>
-          </div>
-        </section>
-
-        <section className="areas section shell">
-          <div className="areas-copy"><p className="eyebrow">Areas we service</p><h2>Across Mitchell Shire and beyond.</h2><p>We regularly work throughout Kilmore, Wallan, Seymour, Lancefield, Broadford and nearby regional communities. If you’re just outside the area, give us a call. We can often travel further.</p></div>
-          <div className="area-list">{areas.map(area => <Link href={`/service-areas/${area.slug}`} key={area.name}>{area.name}<b>↗</b></Link>)}</div>
-        </section>
-
-        <section className="results section shell">
-          <div className="results-copy">
-            <p className="eyebrow">See the difference</p>
-            <h2>Built-up grime doesn’t stand a chance.</h2>
-            <p>Professional equipment and the right method for each surface deliver a deeper, safer and more even clean.</p>
-            <a className="button dark" href="#quote">Book your clean <span>→</span></a>
-          </div>
-          <div className="project-gallery featured-gallery">
-            {featuredProjects.map((image) => (
-              <figure key={image.src}>
-                <Image src={image.src} alt={image.alt} width={1350} height={1080} sizes="(max-width: 600px) 100vw, (max-width: 900px) 50vw, 28vw" />
-                <figcaption>{image.caption}</figcaption>
-              </figure>
-            ))}
-          </div>
-        </section>
-
-        <section className="activity-preview section shell">
-          <div><p className="eyebrow">Recent activity</p><h2>See what we have been up to.</h2></div>
-          <div><p>Follow recent exterior cleaning projects, transformations and practical maintenance tips from SS Exterior Services.</p><Link className="button" href="/recent-activity">View recent activity <span>→</span></Link></div>
-        </section>
-
-        <section className="about section" id="about">
-          <div className="shell about-grid">
-            <div className="about-image"><img src="/images/window-cleaning.jpg" alt="SS Exterior Services cleaning windows in Kilmore Victoria" /><span>Locally owned<br />and operated</span></div>
-            <div className="about-copy">
-              <p className="eyebrow light">Meet SS Exterior Services</p>
-              <h2>Good, honest work done the right way.</h2>
-              <p>SS Exterior Services began with a simple goal: make property maintenance less of a hassle for local residents. Based in Kilmore and run by Simon, the business has grown through word of mouth, hard work and a practical approach.</p>
-              <p>We turn up prepared, use quality equipment and take the time to do a thorough job. No cutting corners and no pushy sales. Just friendly service that keeps your property looking its best.</p>
-              <div className="about-stats"><div><strong>Local</strong><span>Kilmore based</span></div><div><strong>Flexible</strong><span>24/7 availability</span></div><div><strong>Thorough</strong><span>No shortcuts</span></div></div><a className="text-link light-link about-link" href="/about">Read our story →</a>
+                ["01", "Tell us about the job", "Send us the service you need, your location and a few details about the property. We’ll respond promptly and organise your free quote."],
+                ["02", "We assess and explain", "We assess each surface, its condition, access and surrounding areas. You’ll receive the recommended methods, a clear scope and straightforward pricing."],
+                ["03", "See the transformation", "We complete the work carefully, check the finished areas and walk you through the result. Before-and-after photos let you see the transformation for yourself."],
+              ].map(([n, title, text]) => <article key={n}><span>{n}</span><h3>{title}</h3><p>{text}</p></article>)}
             </div>
           </div>
         </section>
 
-        <section className="quote-section section" id="quote">
-          <div className="shell quote-grid">
-            <div><p className="eyebrow light">Let’s get it sorted</p><h2>Ready for a cleaner property?</h2><p>Tell us what you need and where you’re located. We’ll get back to you with a straightforward, obligation free quote.</p><a className="quote-phone" href="tel:0447130743"><small>Prefer to call?</small>0447 130 743</a></div>
-            <QuoteForm />
+        <div className="hv2-transition hv2-transition-black" aria-hidden="true"><span /></div>
+
+        <section className="hv2-reviews section">
+          <div className="shell">
+            <div className="hv2-review-heading"><div><h2>Local people.<br /><em>Real results.</em></h2></div><div className="hv2-score"><strong>5.0</strong><span>★★★★★</span><small>60 Google reviews</small></div></div>
+            <ReviewReel reviews={reviews} googleUrl={googleReviewsUrl} />
+          </div>
+        </section>
+
+        <section className="hv2-areas section shell">
+          <div><h2>Local knowledge.<br /><em>Regional reach.</em></h2><p>Based in Kilmore and regularly working across Mitchell Shire and surrounding communities.</p></div>
+          <div className="hv2-area-list" data-motion-group>{areas.map(area => <Link href={`/service-areas/${area.slug}`} key={area.name}><span>{area.name}</span><ArrowRight size={18} /></Link>)}</div>
+        </section>
+
+        <section className="hv2-quote section" id="quote">
+          <div className="shell hv2-quote-grid">
+            <div className="hv2-quote-copy"><h2>Ready to bring back the <em>street appeal?</em></h2><p>Tell us what needs cleaning and where you’re located. Simon will review the details and get back to you with a straightforward, obligation-free quote.</p><a href="tel:0447130743"><small>Prefer to call?</small>0447 130 743</a></div>
+            <div className="hv2-form-wrap"><QuoteForm /></div>
           </div>
         </section>
       </main>

@@ -1,7 +1,7 @@
 import{createClient}from"@supabase/supabase-js";
 export type ContentRecord={id:string;content_type:string;slug:string;title:string;excerpt:string;body:Record<string,unknown>;seo_title:string;seo_description:string;status:string;sort_order:number;updated_at:string};
 function publicClient(){const url=process.env.VITE_SUPABASE_URL;const key=process.env.VITE_SUPABASE_ANON_KEY;return url&&key?createClient(url,key,{auth:{persistSession:false}}):null}
-function cleanText(value:string){return value.replace(/[—–]/g,", ").replace(/(?<=\p{L})-(?=\p{L})/gu," ").replace(/,\s*,/g,",")}
+function cleanText(value:string){return value.replace(/\s*[—–]\s*/g,", ").replace(/,\s*,/g,",")}
 function cleanBody(value:unknown):unknown{if(typeof value==="string")return cleanText(value);if(Array.isArray(value))return value.map(cleanBody);if(value&&typeof value==="object")return Object.fromEntries(Object.entries(value).map(([key,item])=>[key,cleanBody(item)]));return value}
 function cleanRecord(record:ContentRecord):ContentRecord{return{...record,title:cleanText(record.title),excerpt:cleanText(record.excerpt),body:cleanBody(record.body)as Record<string,unknown>,seo_title:cleanText(record.seo_title),seo_description:cleanText(record.seo_description)}}
 export async function getPublishedContent(contentType:string){const client=publicClient();if(!client)return[] as ContentRecord[];const{data}=await client.from("website_content").select("*").eq("content_type",contentType).eq("status","published").order("sort_order").order("updated_at",{ascending:false});return((data||[])as ContentRecord[]).map(cleanRecord)}

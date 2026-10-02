@@ -50,7 +50,7 @@ export function MotionEffects() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     document.documentElement.classList.add("motion-ready");
-    const sections = Array.from(document.querySelectorAll<HTMLElement>("main > section, main > article > header, main > article > div"));
+    const sections = Array.from(document.querySelectorAll<HTMLElement>("main > section, main > article > header, main > article > div, .hv2-transition, [data-motion-group]"));
     sections.forEach(section => section.classList.add("scroll-reveal"));
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
