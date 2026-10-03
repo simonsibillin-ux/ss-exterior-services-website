@@ -82,10 +82,10 @@ export default function About() {
         </section>
 
         <section className="meet-simon section shell">
-          <figure className="founder-photo"><Image src="/images/uploads/simon/01.jpg" alt="Simon Sibillin, founder and director of SS Exterior Services" width={950} height={1655} priority /></figure>
+          <figure className="founder-photo"><Image src="/images/uploads/simon/01.jpg" alt="Simon, founder and director of SS Exterior Services" width={950} height={1655} priority /></figure>
           <div className="founder-copy">
             <p className="eyebrow">Founder &amp; Director</p>
-            <h2>Meet Simon Sibillin.</h2>
+            <h2>Meet Simon.</h2>
             <p>
               I come from a hardworking family of business owners who built their
               way up from the ground. From a young age, I learned that lasting results
