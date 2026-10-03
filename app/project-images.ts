@@ -34,10 +34,7 @@ export const projectImages: Record<string, ProjectImage[]> = {
   "fence-washing-kilmore": media("fence-washing", [2], "Fence washing"),
   "basic-window-cleaning-kilmore": media("basic-window-cleaning", [1, 3], "Basic window cleaning"),
   "roof-softwashing-kilmore": media("roof-softwashing", [1, 2, 3], "Roof softwashing"),
-  "roof-treatment-kilmore": [
-    example("/images/service-signs/roof-organic-growth.jpg", "Colorbond roof treatment"),
-    ...media("roof-treatment", [2], "Roof treatment"),
-  ],
+  "roof-treatment-kilmore": media("roof-treatment", [2], "Roof treatment"),
   "gutter-cleaning-kilmore": [
     legacyProject("/images/projects/gutter-cleaning-broadford-1.jpg", "Gutter cleaning", "Broadford"),
     legacyProject("/images/projects/gutter-cleaning-doreen-1.jpg", "Gutter cleaning", "Doreen"),
