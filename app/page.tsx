@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, BadgeCheck, Check, MapPin, ShieldCheck, Star } from "lucide-react";
 import { Footer, Header, QuoteForm } from "./components";
-import { featuredProjects } from "./project-images";
 import { ReviewReel } from "./review-reel";
 import { serviceCategories } from "./services/data";
 
@@ -104,9 +103,7 @@ export default function Home() {
             <a className="hv2-button hv2-button-dark" href="#quote">Book your clean <ArrowRight size={19} /></a>
           </div>
           <div className="hv2-photo-stack">
-            <figure className="hv2-project-photo main-photo"><Image src={featuredProjects[0].src} alt={featuredProjects[0].alt} fill sizes="(max-width: 900px) 100vw, 55vw" /><figcaption>{featuredProjects[0].caption}</figcaption></figure>
-            <figure className="hv2-project-photo side-photo"><Image src={featuredProjects[2].src} alt={featuredProjects[2].alt} fill sizes="(max-width: 600px) 42vw, 22vw" /><figcaption>{featuredProjects[2].caption}</figcaption></figure>
-            <figure className="hv2-action-photo"><Image src="/images/uploads/action/01.jpg" alt="Simon from SS Exterior Services clearing a roof gutter" fill sizes="(max-width: 600px) 42vw, 22vw" /></figure>
+            <figure className="hv2-action-photo"><Image src="/images/uploads/action/01.jpg" alt="Simon from SS Exterior Services clearing a roof gutter" fill sizes="(max-width: 900px) 100vw, 55vw" /></figure>
           </div>
         </section>
 
