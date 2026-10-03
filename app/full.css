@@ -638,6 +638,7 @@ main:not(.home-v2) .project-gallery figcaption{background:#fff;color:var(--inter
 /* Recent Activity layout and hero repair. */
 .recent-page .page-hero{min-height:850px;padding:220px 0 112px}
 .recent-page .page-hero .shell{width:min(1240px,calc(100% - 48px));margin-inline:auto}
+.recent-page .page-hero:after{background:#edf4e9}
 .recent-page .social-section{padding-top:32px}
 .recent-page .social-feed-grid{background:transparent}
 .recent-page .facebook-feed{grid-column:1/-1;width:min(100%,620px);justify-self:center}
