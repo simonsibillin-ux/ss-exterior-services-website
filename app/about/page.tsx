@@ -22,7 +22,7 @@ export default function About() {
   return (
     <>
       <Header />
-      <main>
+      <main className="about-page">
         <PageHero
           eyebrow="About SS Exterior Services"
           title="Proper work starts with understanding the surface."

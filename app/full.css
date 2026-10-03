@@ -645,3 +645,6 @@ main:not(.home-v2) .project-gallery figcaption{background:#fff;color:var(--inter
 
 @media(max-width:900px){.page-hero,.service-hero,.article-page>header,.home-v2 .hv2-hero{min-height:760px;background-image:linear-gradient(rgba(7,16,7,.83),rgba(7,16,7,.83)),url('/images/uploads/site/01.jpg')}.recent-page .page-hero{min-height:760px;padding:190px 0 90px}.recent-page .social-section{padding-top:28px}.recent-page .facebook-feed{grid-column:auto}}
 @media(max-width:600px){.page-hero,.service-hero,.article-page>header,.home-v2 .hv2-hero{min-height:680px}.hv2-photo-stack{min-height:540px}.recent-page .page-hero{min-height:680px;padding:165px 0 72px}.recent-page .page-hero .shell{width:min(100% - 32px,1240px)}.recent-page .social-section{padding-top:22px}.recent-page .page-hero h1{font-size:3.25rem}}
+
+/* Keep the long About hero title inside narrow mobile viewports. */
+@media(max-width:600px){.about-page .page-hero h1{font-size:clamp(2.35rem,12.2vw,3rem);overflow-wrap:break-word}}
