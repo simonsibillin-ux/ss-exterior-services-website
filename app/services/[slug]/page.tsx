@@ -38,7 +38,7 @@ function serviceSteps(service:Service){
   ];
 }
 
-function ServiceTemplate({service,projects,examples,videos}:{service:Service;projects:ProjectImage[];examples:ProjectImage[];videos:ProjectVideo[]}){
+function ServiceTemplate({service,projects,examples,videos}:{service:Service;projects:ProjectImage[];examples:Array<ProjectImage | undefined>;videos:ProjectVideo[]}){
   const signs=serviceSignals(service).map((sign,index)=>{const example=examples[index];return{title:sign.title,text:sign.text,...(example?{src:example.src,alt:example.alt}:{})}});
   const steps=serviceSteps(service);
   return <>

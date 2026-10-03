@@ -40,8 +40,6 @@ export default function Home() {
       <Header />
       <main className="home-v2">
         <section className="hv2-hero">
-          <div className="hv2-hero-photo"><Image src="/images/uploads/site/01.jpg" alt="SS Exterior Services vehicle at a residential exterior cleaning project" fill priority sizes="100vw" /></div>
-          <div className="hv2-hero-overlay" />
           <div className="shell hv2-hero-content">
             <div className="hv2-hero-copy reveal">
               <h1>Exterior cleaning. <em>Done right.</em></h1>
@@ -102,8 +100,13 @@ export default function Home() {
             <ul><li><Check size={18} /> Surface-specific cleaning</li><li><Check size={18} /> Careful property protection</li><li><Check size={18} /> Before and after photos</li></ul>
             <a className="hv2-button hv2-button-dark" href="#quote">Book your clean <ArrowRight size={19} /></a>
           </div>
-          <div className="hv2-photo-stack">
-            <figure className="hv2-action-photo"><Image src="/images/uploads/action/01.jpg" alt="Simon from SS Exterior Services clearing a roof gutter" fill sizes="(max-width: 900px) 100vw, 55vw" /></figure>
+          <div className="hv2-results-lattice" data-motion-group>
+            {[
+              ["/images/uploads/house-washing/01.jpg", "House washing before and after", "House washing"],
+              ["/images/uploads/roof-softwashing/01.jpg", "Roof softwashing before and after", "Roof softwashing"],
+              ["/images/uploads/roof-softwashing/02.jpg", "Second roof softwashing before and after", "Roof softwashing"],
+              ["/images/uploads/house-washing/02.jpg", "Second house washing before and after", "House washing"],
+            ].map(([src, alt, label]) => <figure key={src}><Image src={src} alt={alt} fill sizes="(max-width: 600px) 48vw, (max-width: 900px) 42vw, 28vw"/><figcaption>{label}</figcaption></figure>)}
           </div>
         </section>
 
