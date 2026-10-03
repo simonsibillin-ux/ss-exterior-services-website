@@ -20,6 +20,12 @@ const uploadedExample = (folder: string, index: number, service: string): Projec
   caption: `${service} example · Kilmore & Mitchell Shire`,
 });
 
+const legacyProject = (src: string, service: string, location: string): ProjectImage => ({
+  src,
+  alt: `${service} before and after by SS Exterior Services in ${location}`,
+  caption: `${service} · ${location}`,
+});
+
 // Only the selected before-and-after artwork from each matching service folder.
 export const projectImages: Record<string, ProjectImage[]> = {
   "house-washing-kilmore": media("house-washing", [1, 2, 3], "House washing"),
@@ -27,8 +33,19 @@ export const projectImages: Record<string, ProjectImage[]> = {
   "exterior-gutter-washing-kilmore": media("exterior-gutter-washing", [1, 2, 6], "Exterior gutter, fascia and eave washing"),
   "fence-washing-kilmore": media("fence-washing", [2], "Fence washing"),
   "basic-window-cleaning-kilmore": media("basic-window-cleaning", [1, 3], "Basic window cleaning"),
-  "roof-softwashing-kilmore": media("roof-softwashing", [1, 2, 3, 4], "Roof softwashing"),
-  "roof-treatment-kilmore": media("roof-treatment", [1, 2], "Roof treatment"),
+  "roof-softwashing-kilmore": media("roof-softwashing", [1, 2, 3], "Roof softwashing"),
+  "roof-treatment-kilmore": [
+    example("/images/service-signs/roof-organic-growth.jpg", "Colorbond roof treatment"),
+    ...media("roof-treatment", [2], "Roof treatment"),
+  ],
+  "gutter-cleaning-kilmore": [
+    legacyProject("/images/projects/gutter-cleaning-broadford-1.jpg", "Gutter cleaning", "Broadford"),
+    legacyProject("/images/projects/gutter-cleaning-doreen-1.jpg", "Gutter cleaning", "Doreen"),
+    legacyProject("/images/projects/gutter-cleaning-kilmore-1.jpg", "Gutter cleaning", "Kilmore"),
+    legacyProject("/images/projects/gutter-cleaning-seymour-1.jpg", "Gutter cleaning", "Seymour"),
+    legacyProject("/images/projects/gutter-cleaning-wallan-1.jpg", "Gutter cleaning", "Wallan"),
+    legacyProject("/images/projects/gutter-cleaning-wallan-2.jpg", "Gutter cleaning", "Wallan"),
+  ],
   "solar-panel-cleaning-kilmore": media("solar-panel-cleaning", [4, 5, 6], "Solar panel cleaning"),
   "driveway-concrete-path-cleaning-kilmore": media("driveway-concrete-path-cleaning", [1, 2, 6], "Driveway, concrete and path cleaning"),
   "retaining-wall-cleaning-kilmore": media("retaining-wall-cleaning", [1], "Retaining wall cleaning"),
@@ -50,12 +67,12 @@ export const serviceExampleImages: Record<string, Array<ProjectImage | undefined
   "fence-washing-kilmore": [uploadedExample("fence-washing", 1, "Organic growth on a fence")],
   "basic-window-cleaning-kilmore": media("basic-window-cleaning", [2], "Basic window cleaning example"),
   "roof-softwashing-kilmore": [
-    uploadedExample("roof-softwashing", 5, "Moss, lichen or algae on a roof"),
-    example("/images/service-signs/roof-organic-growth.jpg", "Dark or uneven roof areas"),
+    example("/images/service-signs/roof-organic-growth.jpg", "Moss, lichen or algae on a roof"),
+    uploadedExample("roof-softwashing", 5, "Dark or uneven roof areas"),
   ],
   "roof-treatment-kilmore": [
-    uploadedExample("roof-treatment", 3, "Moss, lichen or algae on a roof"),
-    example("/images/service-signs/roof-organic-growth.jpg", "Delicate roof material"),
+    uploadedExample("roof-treatment", 1, "Moss, lichen or algae on a roof"),
+    uploadedExample("roof-treatment", 3, "Delicate roof material"),
   ],
   "gutter-cleaning-kilmore": [
     example("/images/service-signs/gutter-blockage.jpg", "Blocked gutter"),
