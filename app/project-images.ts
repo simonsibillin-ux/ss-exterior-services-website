@@ -1,4 +1,5 @@
 export type ProjectImage = { src: string; alt: string; caption: string };
+export type ProjectVideo = { src: string; title: string; caption: string };
 
 const project = (file: string, service: string, location: string): ProjectImage => ({
   src: `/images/projects/${file}.jpg`,
@@ -6,8 +7,16 @@ const project = (file: string, service: string, location: string): ProjectImage 
   caption: `${service} · ${location}`,
 });
 
+const uploaded = (folder: string, count: number, service: string): ProjectImage[] =>
+  Array.from({ length: count }, (_, index) => ({
+    src: `/images/uploads/${folder}/${String(index + 1).padStart(2, "0")}.jpg`,
+    alt: `${service} project by SS Exterior Services in Kilmore and Mitchell Shire`,
+    caption: `${service} · Kilmore & Mitchell Shire`,
+  }));
+
 export const projectImages: Record<string, ProjectImage[]> = {
   "house-washing-kilmore": [
+    ...uploaded("house-washing", 3, "House washing"),
     {
       src: "/images/projects/house-washing/before-after-wallan.jpg",
       alt: "Before and after house washing around a window in Wallan by SS Exterior Services",
@@ -44,6 +53,7 @@ export const projectImages: Record<string, ProjectImage[]> = {
     project("gutter-cleaning-wallan-2", "Gutter cleaning", "Wallan"),
   ],
   "solar-panel-cleaning-kilmore": [
+    ...uploaded("solar-panel-cleaning", 6, "Solar panel cleaning"),
     project("solar-panel-cleaning-kilmore-1", "Solar panel cleaning", "Kilmore"),
     project("solar-panel-cleaning-diamond-creek-1", "Solar panel cleaning", "Diamond Creek"),
     project("solar-panel-cleaning-craigieburn-1", "Solar panel cleaning", "Craigieburn"),
@@ -52,6 +62,7 @@ export const projectImages: Record<string, ProjectImage[]> = {
     project("solar-panel-cleaning-1", "Solar panel cleaning", "Mitchell Shire"),
   ],
   "basic-window-cleaning-kilmore": [
+    ...uploaded("basic-window-cleaning", 3, "Basic window cleaning"),
     project("house-washing-kilmore-1", "Exterior and window cleaning", "Kilmore"),
     project("soft-washing-wallan-2", "Exterior and fascia cleaning", "Wallan"),
     project("fence-washing-1", "Exterior detail cleaning", "Mitchell Shire"),
@@ -61,6 +72,24 @@ export const projectImages: Record<string, ProjectImage[]> = {
     project("pressure-washing-wall-1", "Commercial exterior cleaning", "Mitchell Shire"),
     project("solar-panel-cleaning-craigieburn-1", "Commercial solar panel cleaning", "Craigieburn"),
     project("gutter-cleaning-broadford-1", "Commercial gutter cleaning", "Broadford"),
+  ],
+  "delicate-surface-softwashing-kilmore": uploaded("delicate-surface-softwashing", 5, "Delicate surface softwashing"),
+  "exterior-gutter-washing-kilmore": uploaded("exterior-gutter-washing", 6, "Exterior gutter, fascia and eave washing"),
+  "fence-washing-kilmore": uploaded("fence-washing", 2, "Fence washing"),
+  "roof-softwashing-kilmore": uploaded("roof-softwashing", 5, "Roof softwashing"),
+  "roof-treatment-kilmore": uploaded("roof-treatment", 3, "Roof treatment"),
+  "driveway-concrete-path-cleaning-kilmore": uploaded("driveway-concrete-path-cleaning", 6, "Driveway, concrete and path cleaning"),
+  "paver-pool-surround-cleaning-kilmore": uploaded("paver-pool-surround-cleaning", 1, "Paver and pool surround cleaning"),
+  "retaining-wall-cleaning-kilmore": uploaded("retaining-wall-cleaning", 3, "Retaining wall cleaning"),
+};
+
+export const projectVideos: Record<string, ProjectVideo[]> = {
+  "paver-pool-surround-cleaning-kilmore": [
+    { src: "/videos/paver-pool-surround-cleaning.m4v", title: "Paver and pool surround cleaning", caption: "See the cleaning process and finished surface." },
+  ],
+  "surface-sealing-kilmore": [
+    { src: "/videos/surface-sealing-1.m4v", title: "Surface sealing project", caption: "A recent surface sealing project by SS Exterior Services." },
+    { src: "/videos/surface-sealing-2.m4v", title: "Sealing application and result", caption: "See the application process and finished result." },
   ],
 };
 

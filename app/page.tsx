@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, Camera, Check, MapPin, ShieldCheck, Star } from "lucide-react";
+import { ArrowRight, BadgeCheck, Check, MapPin, ShieldCheck, Star } from "lucide-react";
 import { Footer, Header, QuoteForm } from "./components";
 import { featuredProjects } from "./project-images";
 import { ReviewReel } from "./review-reel";
@@ -41,9 +41,7 @@ export default function Home() {
       <Header />
       <main className="home-v2">
         <section className="hv2-hero">
-          <div className="hv2-hero-photo" role="img" aria-label="Placeholder for a future SS Exterior Services team or vehicle photograph">
-            <div className="hv2-photo-note"><Camera aria-hidden="true" /><span>Future hero photo</span><small>Team, vehicle or equipment on-site</small></div>
-          </div>
+          <div className="hv2-hero-photo"><Image src="/images/uploads/site/01.jpg" alt="SS Exterior Services vehicle at a residential exterior cleaning project" fill priority sizes="100vw" /></div>
           <div className="hv2-hero-overlay" />
           <div className="shell hv2-hero-content">
             <div className="hv2-hero-copy reveal">
@@ -108,7 +106,7 @@ export default function Home() {
           <div className="hv2-photo-stack">
             <figure className="hv2-project-photo main-photo"><Image src={featuredProjects[0].src} alt={featuredProjects[0].alt} fill sizes="(max-width: 900px) 100vw, 55vw" /><figcaption>{featuredProjects[0].caption}</figcaption></figure>
             <figure className="hv2-project-photo side-photo"><Image src={featuredProjects[2].src} alt={featuredProjects[2].alt} fill sizes="(max-width: 600px) 42vw, 22vw" /><figcaption>{featuredProjects[2].caption}</figcaption></figure>
-            <div className="hv2-future-photo"><Camera aria-hidden="true" /><strong>Future action photo</strong><span>Drop in a close-up of the team at work</span></div>
+            <figure className="hv2-action-photo"><Image src="/images/uploads/action/01.jpg" alt="Simon from SS Exterior Services clearing a roof gutter" fill sizes="(max-width: 600px) 42vw, 22vw" /></figure>
           </div>
         </section>
 

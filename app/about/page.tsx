@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
-import { Camera, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { Footer, Header, PageHero, QuoteBand } from "../components";
 
 export const metadata: Metadata = {
@@ -81,11 +82,7 @@ export default function About() {
         </section>
 
         <section className="meet-simon section shell">
-          <div className="founder-photo" role="img" aria-label="Future photograph of Simon Sibillin on site">
-            <Camera size={42} strokeWidth={1.6} aria-hidden="true" />
-            <strong>Meet Simon</strong>
-            <span>Future on-site portrait</span>
-          </div>
+          <figure className="founder-photo"><Image src="/images/uploads/simon/01.jpg" alt="Simon Sibillin, founder and director of SS Exterior Services" width={950} height={1655} priority /></figure>
           <div className="founder-copy">
             <p className="eyebrow">Founder &amp; Director</p>
             <h2>Meet Simon Sibillin.</h2>
