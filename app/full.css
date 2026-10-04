@@ -648,3 +648,8 @@ main:not(.home-v2) .project-gallery figcaption{background:#fff;color:var(--inter
 
 /* Keep the long About hero title inside narrow mobile viewports. */
 @media(max-width:600px){.about-page .page-hero h1{font-size:clamp(2.35rem,12.2vw,3rem);overflow-wrap:break-word}}
+
+/* Keep all footer copy clearly legible on mobile and desktop. */
+.footer,.footer a,.footer span,.footer p{color:#123b15}
+.footer h3{color:#071007}
+.footer-cta{color:#123b15}

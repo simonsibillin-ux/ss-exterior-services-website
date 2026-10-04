@@ -17,6 +17,9 @@ const areas = [
 ];
 
 const reviews = [
+  ["Simon done a great job. Highly recommended. Simon was easy to deal with, on time and cleaned up any mess he made.", "Shane Elliott"],
+  ["Great communication, turned up when he said he would, worked incredibly hard, gutters have never been cleaner! An absolute professional who knows his stuff and works bloody hard!", "Kirsty McKie"],
+  ["Simon is efficient and a good communicator. He cleaned the gutters and all the windows inside and out, and did an excellent job.", "Therese Shannon"],
   ["Brilliant job. Professional and thorough.", "Mac"],
   ["Great communication, punctual, professional and a very good job cleaning the gutters and downpipes.", "A Kennedy"],
   ["Exceptional service and quality, with before and after photos validating a job well done.", "Russell Sciberras"],
@@ -28,8 +31,6 @@ const reviews = [
   ["Simon did a fantastic cleaning job on my solar panels. They now look brand new and the price was good. Will use Simon for future cleaning jobs.", "John"],
   ["Simon was professional and his attention to detail was outstanding. We would highly recommend SS Exterior Services.", "Brett Collins"],
   ["On time, correct quote, cleaned everything out and cleaned up at the end. Very happy with Simon’s work. I will strongly recommend him to others.", "Neen Franks"],
-  ["Excellent job on gutters and solar panels. Worked hard all day. Will recommend Simon to everyone.", "Janina"],
-  ["Absolutely fantastic job and reasonably priced. Did our whole property for the price some companies quoted for just the front.", "Daniel"],
 ] as const;
 
 const googleReviewsUrl = "https://www.google.com/maps/search/?api=1&query=SS%20Exterior%20Services%20Kilmore%20Victoria";
@@ -48,7 +49,7 @@ export default function Home() {
                 <a className="hv2-button" href="#quote">Get a free quote <ArrowRight size={19} /></a>
                 <a className="hv2-button hv2-button-ghost" href="#services">Explore services</a>
               </div>
-              <div className="hv2-google"><span className="hv2-stars">★★★★★</span><strong>5.0 on Google</strong><span>60 local reviews</span></div>
+              <div className="hv2-google"><span className="hv2-stars">★★★★★</span><strong>5.0 on Google</strong><span>75 local reviews</span></div>
             </div>
           </div>
           <div className="shell hv2-trust-strip" data-motion-group>
@@ -129,7 +130,7 @@ export default function Home() {
 
         <section className="hv2-reviews section">
           <div className="shell">
-            <div className="hv2-review-heading"><div><h2>Local people.<br /><em>Real results.</em></h2></div><div className="hv2-score"><strong>5.0</strong><span>★★★★★</span><small>60 Google reviews</small></div></div>
+            <div className="hv2-review-heading"><div><h2>Local people.<br /><em>Real results.</em></h2></div><div className="hv2-score"><strong>5.0</strong><span>★★★★★</span><small>75 Google reviews</small></div></div>
             <ReviewReel reviews={reviews} googleUrl={googleReviewsUrl} />
           </div>
         </section>

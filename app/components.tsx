@@ -10,7 +10,7 @@ declare global { interface Window { dataLayer?: Record<string, unknown>[] } }
 export function Header() {
   return <header className="site-header">
     <div className="header-top"><div className="shell header-top-inner">
-      <div className="header-local"><span>Kilmore, Victoria</span><a href="mailto:ssexteriorservices@outlook.com">ssexteriorservices@outlook.com</a></div>
+      <div className="header-local"><span>Kilmore, Victoria</span><a href="mailto:info@ssexteriorservices.com.au">info@ssexteriorservices.com.au</a></div>
       <div className="header-contact"><a href="tel:0447130743">0447 130 743</a><Link href="/contact">Get a free quote</Link></div>
     </div></div>
     <div className="header-main"><div className="shell nav-wrap">
@@ -44,7 +44,7 @@ export function Footer() {
     <div className="footer-brand"><Image src="/images/logo.png" alt="SS Exterior Services" width={510} height={330} /><p>Professional exterior cleaning across Kilmore, Mitchell Shire and surrounding communities.</p><Link className="footer-cta" href="/contact">Request a free quote</Link></div>
     <div><h3>Services</h3><Link href="/services">All services</Link>{serviceCategories.map(category => <Link key={category.slug} href={category.href}>{category.title}</Link>)}</div>
     <div><h3>Explore</h3><Link href="/about">About us</Link><Link href="/service-areas">Service areas</Link><Link href="/resources">Resources</Link><Link href="/recent-activity">Recent activity</Link><Link href="/contact">Contact</Link><Link href="/admin">Website admin</Link></div>
-    <div><h3>Contact</h3><a href="tel:0447130743">0447 130 743</a><a href="mailto:ssexteriorservices@outlook.com">ssexteriorservices@outlook.com</a><span>Kilmore, Victoria 3764</span><span>Available 24 hours</span></div>
+    <div><h3>Contact</h3><a href="tel:0447130743">0447 130 743</a><a href="mailto:info@ssexteriorservices.com.au">info@ssexteriorservices.com.au</a><span>Kilmore, Victoria 3764</span><span>Available 24 hours</span></div>
   </div><div className="shell footer-bottom"><span>© 2026 SS Exterior Services · ABN 93 572 816 955</span><div><Link href="/privacy-policy">Privacy</Link><Link href="/terms">Website Terms</Link></div></div></footer>;
 }
 
