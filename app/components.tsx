@@ -98,9 +98,10 @@ export function QuoteForm({ defaultService = "" }: { compact?: boolean; defaultS
     })}</div></fieldset>
     <div className={`optional-details${optionalOpen ? " is-open" : ""}`}><button className="optional-summary" type="button" aria-expanded={optionalOpen} aria-controls={optionalDetailsId} onClick={() => setOptionalOpen(open => !open)}>Add email or job details <span aria-hidden="true">+</span></button><div id={optionalDetailsId} aria-hidden={!optionalOpen}><label><span>Email</span><input name="email" type="email" autoComplete="email" placeholder="you@email.com" tabIndex={optionalOpen ? 0 : -1} /></label><label><span>Tell us about the job</span><textarea name="message" rows={3} placeholder="Anything useful about access, size or the work required" tabIndex={optionalOpen ? 0 : -1} /></label></div></div>
     <label className="consent"><input type="checkbox" required name="consent" value="yes" /><span>I agree that SS Exterior Services may contact me about this enquiry.</span></label>
+    <label className="consent marketing-consent"><input type="checkbox" name="marketingConsent" value="yes" /><span>Yes, send me occasional offers and seasonal service reminders by SMS and email. I can unsubscribe at any time. <strong>Optional</strong></span></label>
     {state === "error" && <p className="form-error" role="alert">{error} You can also call <a href="tel:0447130743">0447 130 743</a>.</p>}
     <button className="button form-button" disabled={state === "sending"} type="submit">{state === "sending" ? "Sending..." : "Request my free quote"}</button>
-    <small className="privacy-note">Your details are used only to respond to this enquiry.</small>
+    <small className="privacy-note">Your enquiry contact permission is separate from the optional marketing choice above.</small>
   </form>;
 }
 
